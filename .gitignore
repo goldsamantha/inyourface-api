@@ -1,0 +1,12 @@
+# scratch pad
+sample.py
+
+# image directory
+img/
+
+# these suckers
+*DS_Store
+*.pyc
+
+# google credentials
+google-credentials.json
