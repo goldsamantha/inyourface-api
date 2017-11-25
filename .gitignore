@@ -2,7 +2,8 @@
 sample.py
 
 # image directory
-img/
+img/*
+!img/README.md
 
 # these suckers
 *DS_Store
