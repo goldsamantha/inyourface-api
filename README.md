@@ -18,8 +18,14 @@ curl -X POST -H 'Content-type: applicat '{"effects" : ["glitter"], "urls" : ["ht
 
 Check your `./img/glitter` directory for a new image to confirm that it worked
 
+In order for the inyourface library to work you will need credentials for the google vision api and they will need to be stored in the home directory for this project under:
+`.google-credentials.json`
+
 ### TODO:
 - [ ] Proper error handling for
   - no image
   - no effects
 - [ ] check file upload size is not too much
+- [ ] add a util class with:
+  - directory hack update for all inyourface effects
+  - sample util functions like `getDirectoryPath()`, `getAngle()`, `getCoefficient()`
