@@ -13,7 +13,7 @@ $ export FLASK_DEBUG=1
 
 This should be all you need to do to get up and running with the app. In another window try the following command to curl to the simple api:
 ```
-curl -X POST -H 'Content-type: applicat '{"effects" : ["glitter"], "urls" : ["https://pbs.twimg.com/profile_images/777564057553567749/7P6m2BMF_400x400.jpg"] }' http://localhost:5000/effect
+curl -X POST -H 'Content-type: application/JSON' -d '{"effects" : ["glitter"], "urls" : ["https://pbs.twimg.com/profile_images/777564057553567749/7P6m2BMF_400x400.jpg"] }' http://localhost:5000/effect
 ```
 
 Check your `./img/glitter` directory for a new image to confirm that it worked
