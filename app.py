@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 import os, sys, click, pprint
-import config
 
 app = Flask(__name__)
 
@@ -21,7 +20,6 @@ request should have:
 """
 @app.route('/effect', methods=['POST'])
 def effect():
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config.google_credentials
     data = request.get_json()
     urls = data.get("urls")
     # TODO: error handling for no image_url
@@ -32,11 +30,11 @@ def effect():
         return "You must specify some effects!"
     elif (len(effects) == 1):
         effect_module = getattr(inyourface.effect, effects[0][0].upper() + effects[0][1:])
-        gif = effect_module.EffectAnimator(urls, config.image_dir, config.cache_dir)
+        gif = effect_module.EffectAnimator(urls, os.environ['IYF_IMAGE_DIR'], os.environ['IYF_CACHE_DIR'])
         name = gif.gif()
         return name
     else:
-        gif = EffectOrchestrator(urls, config.image_dir, config.cache_dir, effects)
+        gif = EffectOrchestrator(urls, os.environ['IYF_IMAGE_DIR'], os.environ['IYF_CACHE_DIR'], effects)
         name = gif.gif()
         return name
 
