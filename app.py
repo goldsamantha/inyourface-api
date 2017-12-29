@@ -1,13 +1,9 @@
 from flask import Flask, request, jsonify
-import os, sys, click, pprint
+import os, sys, click, pprint, inyourface.effect
+
+from inyourface import EffectOrchestrator
 
 app = Flask(__name__)
-
-# inyourface submodule
-lib_dir_path        = os.getcwd() + "/lib/inyourface"
-sys.path.append(lib_dir_path)
-import inyourface.effect
-from inyourface import EffectOrchestrator
 
 """
 This is a basic request for an inyourface effect which will return a gif with
@@ -30,7 +26,7 @@ def effect():
         return "You must specify some effects!"
     elif (len(effects) == 1):
         effect_module = getattr(inyourface.effect, effects[0][0].upper() + effects[0][1:])
-        gif = effect_module.EffectAnimator(urls, os.environ['IYF_IMAGE_DIR'], os.environ['IYF_CACHE_DIR'])
+        gif = effect_module.EffectAnimator(urls, os.environ['IYF_IMAGE_DIR'], False)
         name = gif.gif()
         return name
     else:

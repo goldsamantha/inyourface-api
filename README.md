@@ -4,7 +4,8 @@
 For this example your images will live in the `/img` directory. This assumes that you've already gotten [google credentials](https://cloud.google.com/vision/docs/auth) and named the file `google-credentials.json` in the home directory of this project. Feel free to name these folders whatever you like, live your truth.
 ```
 $ mkdir img/cache/
-$ export FLASK_APP=app.py IYF_IMAGE_DIR=img/ IYF_CACHE_DIR=img/cache/ GOOGLE_APPLICATION_CREDENTIALS=google-credentials.json
+$ export FLASK_APP=app.py IYF_IMAGE_DIR=img/ GOOGLE_APPLICATION_CREDENTIALS=google-credentials.json
+$ pip install inyourface
 $ flask run
 ```
 This sets up the scaffolding where your images will get stored and tells the application where to look for your google credentials.

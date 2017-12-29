@@ -1,4 +1,0 @@
-[submodule "lib/inyourface"]
-	path = lib/inyourface
-	url = https://github.com/sgoldst3/inyourface/
-	branch = goldsam-api
